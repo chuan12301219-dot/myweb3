@@ -2,71 +2,109 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>卡比 KABI｜聯絡我們</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡比 KABI｜聯絡我們</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <a class="logo" href="index.html">♡ 卡比 KABI</a>
-  <nav>
-    <a href="index.html">首頁</a>
-    <a href="about.html">公司介紹</a>
-    <a href="contact.html">聯絡我們</a>
-  </nav>
-</header>
+    <!-- 網站導覽列 -->
+    <header>
+        <a class="logo" href="index.html">♡ 卡比 KABI</a>
 
-<section class="page-title">
-  <h1>聯絡我們 ♡</h1>
-  <p>有任何問題，都歡迎與我們聯繫。</p>
-</section>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">公司介紹</a>
+            <a href="contact.html">聯絡我們</a>
+        </nav>
+    </header>
 
-<section class="content">
-  <h2>CONTACT US</h2>
-  <p>請填寫以下資料，我們會盡快回覆您。</p>
+    <!-- 頁面標題 -->
+    <section class="page-title">
+        <h1>聯絡我們 ♡</h1>
+        <p>有任何問題，都歡迎與我們聯繫。</p>
+    </section>
 
-  <form action="https://formsubmit.co/chuan12301219@gmail.com"
-        method="POST">
+    <!-- 聯絡表單 -->
+    <section class="content">
 
-    <input type="hidden" name="_subject"
-           value="卡比 KABI 網站聯絡表單">
+        <h2>CONTACT US</h2>
 
-    <input type="hidden" name="_template"
-           value="table">
+        <p>請填寫以下資料，我們會盡快回覆您。</p>
 
-    <input type="hidden" name="_captcha"
-           value="false">
+        <form
+            action="https://formsubmit.co/chuan12301219@gmail.com"
+            method="POST">
 
-    <label>姓名</label>
-    <input type="text" name="姓名"
-           placeholder="請輸入姓名" required>
+            <!-- 信件主旨 -->
+            <input type="hidden" name="_subject"
+                   value="卡比 KABI｜網站聯絡表單">
 
-    <label>電話</label>
-    <input type="tel" name="電話"
-           placeholder="請輸入電話" required>
+            <!-- 信件表格格式 -->
+            <input type="hidden" name="_template"
+                   value="table">
 
-    <label>Email</label>
-    <input type="email" name="Email"
-           placeholder="請輸入Email" required>
+            <!-- 寄送成功後返回首頁 -->
+            <input type="hidden" name="_next"
+                   value="https://你的GitHub帳號.github.io/kabi-website/">
 
-    <label>聯絡內容</label>
-    <textarea name="聯絡內容"
-              placeholder="請輸入聯絡內容"
-              rows="6" required></textarea>
+            <!-- 防止垃圾表單 -->
+            <input type="text" name="_honey"
+                   style="display:none">
 
-    <button type="submit">送出表單 ♡</button>
+            <!-- 姓名 -->
+            <label for="name">姓名：</label>
+            <input
+                type="text"
+                id="name"
+                name="姓名"
+                placeholder="請輸入您的姓名"
+                required>
 
-  </form>
-</section>
+            <!-- 電話 -->
+            <label for="phone">電話：</label>
+            <input
+                type="tel"
+                id="phone"
+                name="電話"
+                placeholder="請輸入您的電話"
+                required>
 
-<footer>
-  <h3>卡比 KABI ♡</h3>
-  <p>用一點粉色，讓每一天都有好心情。</p>
-  <small>© 2026 KABI All Rights Reserved.</small>
-</footer>
+            <!-- Email -->
+            <label for="email">Email：</label>
+            <input
+                type="email"
+                id="email"
+                name="Email"
+                placeholder="請輸入您的電子信箱"
+                required>
 
-<script src="script.js"></script>
+            <!-- 聯絡內容 -->
+            <label for="message">聯絡內容：</label>
+            <textarea
+                id="message"
+                name="聯絡內容"
+                rows="6"
+                placeholder="請輸入您想詢問的內容..."
+                required></textarea>
+
+            <!-- 送出按鈕 -->
+            <button type="submit">
+                送出表單 ♡
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <h3>卡比 KABI ♡</h3>
+        <p>用一點粉色，讓每一天都有好心情。</p>
+        <small>© 2026 KABI All Rights Reserved.</small>
+    </footer>
+
 </body>
 </html>
