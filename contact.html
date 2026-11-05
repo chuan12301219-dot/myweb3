@@ -1,553 +1,88 @@
-
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#fff1f6">
-    <title>預約諮詢｜卡比 KABI 寵物美容</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --pink: #e88eae;
-            --pink-dark: #d96f98;
-            --pink-light: #fff0f5;
-            --pink-soft: #fce1eb;
-            --cream: #fffafd;
-            --text: #51404a;
-            --muted: #927d88;
-            --border: #f3dce6;
-            --white: #ffffff;
-            --shadow: 0 16px 42px rgba(205, 119, 155, .12);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Zen Maru Gothic", "PingFang TC", "Microsoft JhengHei", sans-serif;
-        }
-
-        body {
-            min-height: 100vh;
-            color: var(--text);
-            background:
-                radial-gradient(circle at 8% 8%, rgba(255, 218, 232, .65), transparent 24rem),
-                radial-gradient(circle at 92% 28%, rgba(255, 231, 239, .8), transparent 22rem),
-                var(--cream);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        nav {
-            width: min(1080px, 100%);
-            margin: 0 auto;
-            padding: 25px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            color: var(--pink-dark);
-            text-decoration: none;
-            font-size: 1.35rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: .95rem;
-            font-weight: 700;
-            transition: color .25s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--pink-dark);
-        }
-
-        .hero {
-            width: min(1080px, 100%);
-            margin: 18px auto 0;
-            padding: 36px 28px 12px;
-            text-align: center;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            padding: 7px 16px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: rgba(255,255,255,.8);
-            color: var(--pink-dark);
-            font-size: .85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            margin: 16px 0 10px;
-            color: var(--pink-dark);
-            font-size: clamp(1.8rem, 5vw, 2.55rem);
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            color: var(--muted);
-            line-height: 1.9;
-            font-size: .98rem;
-        }
-
-        .container {
-            width: min(980px, 100%);
-            margin: 0 auto;
-            padding: 30px 28px 65px;
-        }
-
-        .section-title {
-            margin-bottom: 12px;
-            text-align: center;
-            color: var(--pink-dark);
-            font-size: 1.55rem;
-            font-weight: 900;
-        }
-
-        .section-desc {
-            margin-bottom: 30px;
-            text-align: center;
-            color: var(--muted);
-            line-height: 1.8;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 22px;
-            margin-bottom: 42px;
-        }
-
-        .price-card {
-            padding: 30px 28px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-            transition: transform .25s ease, box-shadow .25s ease;
-        }
-
-        .price-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 46px rgba(205, 119, 155, .17);
-        }
-
-        .price-card h3 {
-            margin-bottom: 12px;
-            color: var(--pink-dark);
-            font-size: 1.18rem;
-            text-align: center;
-        }
-
-        .price {
-            margin-bottom: 18px;
-            color: var(--text);
-            font-size: 1.45rem;
-            font-weight: 900;
-            text-align: center;
-        }
-
-        .price-card ul {
-            padding-left: 4px;
-            list-style: none;
-            color: var(--muted);
-            font-size: .94rem;
-            line-height: 2;
-        }
-
-        .price-card li::before {
-            content: "♡ ";
-            color: var(--pink);
-            font-weight: 900;
-        }
-
-        .contact-container {
-            padding: clamp(24px, 5vw, 42px);
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-container h2 {
-            margin-bottom: 9px;
-            color: var(--pink-dark);
-            font-size: 1.55rem;
-            font-weight: 900;
-        }
-
-        .subtitle {
-            margin-bottom: 25px;
-            color: var(--muted);
-            line-height: 1.8;
-        }
-
-        .notice-box {
-            margin-bottom: 28px;
-            padding: 17px 20px;
-            color: #9b6179;
-            background: var(--pink-light);
-            border: 1px solid var(--pink-soft);
-            border-radius: 17px;
-            font-size: .92rem;
-            line-height: 1.8;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0 18px;
-        }
-
-        .form-group {
-            margin-bottom: 19px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text);
-            font-size: .94rem;
-            font-weight: 700;
-        }
-
-        .required {
-            color: var(--pink-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            min-height: 49px;
-            padding: 12px 15px;
-            color: var(--text);
-            background: #fff9fb;
-            border: 1px solid var(--border);
-            border-radius: 13px;
-            outline: none;
-            font-size: .95rem;
-            transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
-        }
-
-        .form-group textarea {
-            min-height: 125px;
-            resize: vertical;
-            line-height: 1.7;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            background: var(--white);
-            border-color: var(--pink);
-            box-shadow: 0 0 0 4px rgba(232, 142, 174, .14);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px 20px;
-            color: var(--white);
-            background: linear-gradient(135deg, #eea2bd, #dc789e);
-            border: 0;
-            border-radius: 999px;
-            box-shadow: 0 9px 20px rgba(217, 111, 152, .22);
-            font-size: 1rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: transform .25s ease, box-shadow .25s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 13px 24px rgba(217, 111, 152, .3);
-        }
-
-        .form-note {
-            margin-top: 13px;
-            color: var(--muted);
-            font-size: .82rem;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        footer {
-            padding: 28px 18px;
-            color: var(--muted);
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: .85rem;
-            letter-spacing: .5px;
-        }
-
-        @media (max-width: 650px) {
-            nav {
-                padding: 20px 18px;
-                flex-direction: column;
-                gap: 14px;
-            }
-
-            .nav-links {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px 22px;
-            }
-
-            .hero {
-                padding: 25px 20px 5px;
-            }
-
-            .container {
-                padding: 25px 18px 45px;
-            }
-
-            .pricing-grid,
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full {
-                grid-column: auto;
-            }
-
-            .price-card {
-                padding: 25px 22px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- 導覽列 -->
-    <nav>
-        <a href="index.html" class="logo">🎀 KABI 卡比</a>
-
-        <ul class="nav-links">
-            <li><a href="index.html">首頁</a></li>
-            <li><a href="about.html">關於我們</a></li>
-            <li><a href="contact.html" class="active">預約諮詢</a></li>
-        </ul>
-    </nav>
-
-    <!-- 頁面標題 -->
-    <header class="hero">
-        <span class="eyebrow">KABI PET SPA · LOVE YOUR PET</span>
-
-        <h1>給毛孩剛剛好的溫柔寵愛 ♡</h1>
-
-        <p>
-            用細心與耐心，陪伴每一位毛孩變得乾淨又可愛。<br>
-            歡迎先了解服務內容，再填寫下方表單預約。
-        </p>
-    </header>
-
-    <main class="container">
-
-        <!-- 服務價目 -->
-        <h2 class="section-title">♡ 專屬寵愛服務與透明價目</h2>
-
-        <p class="section-desc">
-            依寶貝的體型與需求提供精緻護理，給予全方位的溫柔呵護。
-        </p>
-
-        <section class="pricing-grid">
-
-            <article class="price-card">
-                <h3>精緻基礎洗護</h3>
-
-                <div class="price">NT$ 600 起</div>
-
-                <ul>
-                    <li>低敏天然洗劑雙效洗淨</li>
-                    <li>溫柔手感吹毛與梳理</li>
-                    <li>基礎指甲修剪與清耳</li>
-                    <li>擠肛門腺與足底毛修整</li>
-                </ul>
-            </article>
-
-            <article class="price-card">
-                <h3>頂級造型大美容</h3>
-
-                <div class="price">NT$ 1,200 起</div>
-
-                <ul>
-                    <li>包含完整基礎洗護服務</li>
-                    <li>資深美容師精緻造型剪毛</li>
-                    <li>免費贈送當月主題萌寵寫真</li>
-                    <li>自由遊戲等待區開心放風</li>
-                </ul>
-            </article>
-
-        </section>
-
-        <!-- 預約表單 -->
-        <section class="contact-container">
-
-            <h2>預約與諮詢表單 💌</h2>
-
-            <p class="subtitle">
-                請填寫您與毛孩的資料，送出後我們會收到您的預約需求，再與您聯繫確認。
-            </p>
-
-            <div class="notice-box">
-                <strong>♡ 貼心提醒：</strong>
-                本店採全預約制。為維護毛孩與工作人員的安全，恕不接待有攻擊行為、可能咬人的狗狗。毛孩等待接回期間的照護方式，請於預約前與我們確認。
-            </div>
-
-            <!-- 保留原本 Formspree 寄信設定 -->
-            <form action="https://formspree.io/f/maeebrwz" method="POST">
-
-                <input type="hidden" name="_subject" value="KABI 卡比｜寵物美容預約表單">
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-                        <label for="ownerName">
-                            毛爸／毛媽大名 <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="ownerName"
-                            name="毛爸毛媽大名"
-                            required
-                            autocomplete="name"
-                            placeholder="例如：林小姐">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">
-                            聯絡電話 <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="連絡電話"
-                            required
-                            autocomplete="tel"
-                            placeholder="例如：0912-345-678">
-                    </div>
-
-                    <div class="form-group full">
-                        <label for="email">
-                            E-mail <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            autocomplete="email"
-                            placeholder="例如：yourname@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="petInfo">
-                            毛孩名字與品種 <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="petInfo"
-                            name="毛孩與品種"
-                            required
-                            placeholder="例如：奶茶／貴賓犬">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service">
-                            預約服務項目 <span class="required">*</span>
-                        </label>
-
-                        <select id="service" name="預約服務項目" required>
-                            <option value="">請選擇服務</option>
-                            <option value="精緻基礎洗護">精緻基礎洗護（NT$ 600 起）</option>
-                            <option value="頂級造型大美容">頂級造型大美容（NT$ 1,200 起）</option>
-                            <option value="其他／想先諮詢">其他／想先諮詢</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="date">希望預約日期</label>
-
-                        <input
-                            type="date"
-                            id="date"
-                            name="希望預約日期">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="time">希望預約時段</label>
-
-                        <select id="time" name="希望預約時段">
-                            <option value="">請選擇時段</option>
-                            <option value="上午">上午</option>
-                            <option value="下午">下午</option>
-                            <option value="晚上">晚上</option>
-                            <option value="時間皆可">時間皆可</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full">
-                        <label for="notes">其他需求或毛孩狀況</label>
-
-                        <textarea
-                            id="notes"
-                            name="其他需求或毛孩狀況"
-                            placeholder="例如：毛孩年齡、體型、皮膚狀況，或其他想先詢問的事項……"></textarea>
-                    </div>
-
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    送出預約需求 ♡
-                </button>
-
-                <p class="form-note">
-                    送出表單代表提出預約需求，實際服務時間仍以店家回覆確認為準。
-                </p>
-
-            </form>
-        </section>
-
-    </main>
-
-    <!-- 頁尾 -->
-    <footer>
-        © 2026 KABI 卡比寵物美容｜用愛心呵護每一位毛孩 ♡
-    </footer>
-
-</body>
-</html>
+<!-- 卡比 KABI 預約表單：寄送至 Gmail -->
+<form action="https://formsubmit.co/chuan12301219@gmail.com" method="POST">
+
+    <!-- 郵件主旨 -->
+    <input type="hidden" name="_subject" value="KABI 卡比｜寵物美容預約通知">
+
+    <!-- 信件格式 -->
+    <input type="hidden" name="_template" value="table">
+
+    <!-- 防止垃圾訊息 -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- 以下保留原本所有表單欄位 -->
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="ownerName">毛爸／毛媽大名 *</label>
+            <input type="text" id="ownerName"
+                   name="毛爸毛媽大名" required
+                   placeholder="例如：林小姐">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">聯絡電話 *</label>
+            <input type="tel" id="phone"
+                   name="連絡電話" required
+                   placeholder="例如：0912-345-678">
+        </div>
+
+        <div class="form-group full">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email"
+                   name="_replyto" required
+                   placeholder="例如：yourname@email.com">
+        </div>
+
+        <div class="form-group">
+            <label for="petInfo">毛孩名字與品種 *</label>
+            <input type="text" id="petInfo"
+                   name="毛孩與品種" required
+                   placeholder="例如：奶茶／貴賓犬">
+        </div>
+
+        <div class="form-group">
+            <label for="service">預約服務項目 *</label>
+            <select id="service" name="預約服務項目" required>
+                <option value="">請選擇服務</option>
+                <option value="精緻基礎洗護">精緻基礎洗護</option>
+                <option value="頂級造型大美容">頂級造型大美容</option>
+                <option value="其他／想先諮詢">其他／想先諮詢</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">希望預約日期</label>
+            <input type="date" id="date" name="希望預約日期">
+        </div>
+
+        <div class="form-group">
+            <label for="time">希望預約時段</label>
+            <select id="time" name="希望預約時段">
+                <option value="">請選擇時段</option>
+                <option value="上午">上午</option>
+                <option value="下午">下午</option>
+                <option value="晚上">晚上</option>
+                <option value="時間皆可">時間皆可</option>
+            </select>
+        </div>
+
+        <div class="form-group full">
+            <label for="notes">其他需求或毛孩狀況</label>
+            <textarea id="notes"
+                      name="其他需求或毛孩狀況"
+                      placeholder="請輸入其他需求……"></textarea>
+        </div>
+
+    </div>
+
+    <button type="submit" class="submit-btn">
+        送出預約需求 ♡
+    </button>
+
+    <p class="form-note">
+        送出表單後，我們將收到您的預約需求。
+    </p>
+
+</form>
