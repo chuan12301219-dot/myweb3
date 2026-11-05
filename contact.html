@@ -1,88 +1,28 @@
-<!-- 卡比 KABI 預約表單：寄送至 Gmail -->
 <form action="https://formsubmit.co/chuan12301219@gmail.com" method="POST">
 
-    <!-- 郵件主旨 -->
-    <input type="hidden" name="_subject" value="KABI 卡比｜寵物美容預約通知">
+  <input type="hidden" name="_subject" value="KABI 卡比｜寵物美容預約通知">
+  <input type="hidden" name="_template" value="table">
+  <input type="text" name="_honey" style="display:none">
 
-    <!-- 信件格式 -->
-    <input type="hidden" name="_template" value="table">
+  <input type="text" name="姓名" placeholder="您的姓名" required>
+  <input type="tel" name="電話" placeholder="聯絡電話" required>
+  <input type="email" name="email" placeholder="電子信箱">
 
-    <!-- 防止垃圾訊息 -->
-    <input type="text" name="_honey" style="display:none">
+  <input type="text" name="寵物名稱" placeholder="寵物名稱">
+  <input type="text" name="寵物品種" placeholder="寵物品種">
 
-    <!-- 以下保留原本所有表單欄位 -->
+  <select name="美容服務" required>
+    <option value="">請選擇服務</option>
+    <option value="基礎洗澡">基礎洗澡</option>
+    <option value="精緻美容">精緻美容</option>
+    <option value="全套美容">全套美容</option>
+  </select>
 
-    <div class="form-grid">
+  <input type="date" name="預約日期" required>
+  <input type="time" name="預約時間" required>
 
-        <div class="form-group">
-            <label for="ownerName">毛爸／毛媽大名 *</label>
-            <input type="text" id="ownerName"
-                   name="毛爸毛媽大名" required
-                   placeholder="例如：林小姐">
-        </div>
+  <textarea name="備註" placeholder="其他需求"></textarea>
 
-        <div class="form-group">
-            <label for="phone">聯絡電話 *</label>
-            <input type="tel" id="phone"
-                   name="連絡電話" required
-                   placeholder="例如：0912-345-678">
-        </div>
-
-        <div class="form-group full">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email"
-                   name="_replyto" required
-                   placeholder="例如：yourname@email.com">
-        </div>
-
-        <div class="form-group">
-            <label for="petInfo">毛孩名字與品種 *</label>
-            <input type="text" id="petInfo"
-                   name="毛孩與品種" required
-                   placeholder="例如：奶茶／貴賓犬">
-        </div>
-
-        <div class="form-group">
-            <label for="service">預約服務項目 *</label>
-            <select id="service" name="預約服務項目" required>
-                <option value="">請選擇服務</option>
-                <option value="精緻基礎洗護">精緻基礎洗護</option>
-                <option value="頂級造型大美容">頂級造型大美容</option>
-                <option value="其他／想先諮詢">其他／想先諮詢</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="date">希望預約日期</label>
-            <input type="date" id="date" name="希望預約日期">
-        </div>
-
-        <div class="form-group">
-            <label for="time">希望預約時段</label>
-            <select id="time" name="希望預約時段">
-                <option value="">請選擇時段</option>
-                <option value="上午">上午</option>
-                <option value="下午">下午</option>
-                <option value="晚上">晚上</option>
-                <option value="時間皆可">時間皆可</option>
-            </select>
-        </div>
-
-        <div class="form-group full">
-            <label for="notes">其他需求或毛孩狀況</label>
-            <textarea id="notes"
-                      name="其他需求或毛孩狀況"
-                      placeholder="請輸入其他需求……"></textarea>
-        </div>
-
-    </div>
-
-    <button type="submit" class="submit-btn">
-        送出預約需求 ♡
-    </button>
-
-    <p class="form-note">
-        送出表單後，我們將收到您的預約需求。
-    </p>
+  <button type="submit">送出預約</button>
 
 </form>
